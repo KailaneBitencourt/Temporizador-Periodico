@@ -30,8 +30,8 @@
       [ "pico:GP0", "$serialMonitor:RX", "", [] ],
       [ "pico:GP1", "$serialMonitor:TX", "", [] ],
       [ "pico:GND.4", "r1:2", "black", [ "h0" ] ],
-      [ "pico:GP12", "led1:A", "green", [ "h0" ] ],
-      [ "led1:C", "r1:1", "green", [ "v0" ] ]
+      [ "led1:C", "r1:1", "green", [ "v0" ] ],
+      [ "pico:GP11", "led1:A", "green", [ "h0" ] ]
     ],
     "dependencies": {}
   }

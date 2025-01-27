@@ -2,7 +2,7 @@
 #include "pico/stdlib.h"   // Inclui a biblioteca padrão para funcionalidades básicas como GPIO, temporização e comunicação serial.
 #include "hardware/timer.h" // Inclui a biblioteca para gerenciamento de temporizadores de hardware.
 
-#define LED_PIN_RED 12
+#define LED_PIN_RED 11
 bool led_on = false;
 
 // Função de callback que será chamada repetidamente pelo temporizador
@@ -19,7 +19,6 @@ bool repeating_timer_callback(struct repeating_timer *t) {
 
 int main() {
     // Inicializa a comunicação serial, permitindo o uso de funções como printf.
-    // Necessário para enviar mensagens através da interface USB ou UART.
     stdio_init_all();
 
     // Inicializar o pino GPIO11
@@ -31,22 +30,13 @@ int main() {
     struct repeating_timer timer;
 
     // Configura o temporizador para chamar a função de callback a cada 1 segundo.
-    // Parâmetros:
-    // 1000: Intervalo de tempo em milissegundos (1 segundo).
-    // repeating_timer_callback: Função de callback que será chamada a cada intervalo.
-    // NULL: Dados adicionais passados para a função de callback (não utilizados neste caso).
-    // &timer: Ponteiro para a estrutura que armazenará informações do temporizador.
     add_repeating_timer_ms(1000, repeating_timer_callback, NULL, &timer);
 
     // Loop infinito que mantém o programa em execução.
-    // Aqui você pode adicionar outras tarefas que deseja que o microcontrolador execute.
     while (true) {
-        // Pausa de 1 segundo para reduzir o uso da CPU.
-        // Embora o temporizador opere independentemente, esta pausa evita que o loop
-        // seja executado continuamente sem realizar nada útil.
+        // Pausa de 10 segundos para reduzir o uso da CPU.
         sleep_ms(10000);
         printf("rotina de repetição\n");
     }
-    // Código nunca chegará aqui devido ao loop infinito, mas é uma boa prática incluir return.
     return 0;
 }
