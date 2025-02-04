@@ -25,4 +25,6 @@ Este projeto simula o funcionamento de um semáforo utilizando um LED RGB e temp
 ## Como Rodar
 
 1. Clone este repositório para o seu Raspberry Pi:
-2. Compile e rode o código
+2. Compile o código
+3. Coloque a placa em modo BOOTSEL, ou coloque para simular no WOKWI
+4. Rode o código
